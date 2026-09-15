@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T18:16:44.996Z
+  modified: 2026-09-15T18:29:55.543Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -211,6 +211,23 @@ implementação liberada.
 
 **TODAS AS 5 TASKS DE IMPLEMENTAÇÃO FEITAS** (`0f602bf`, `3ea4e23`,
 `8fedd70`, `d5e681d`, `a871d29`, todas na branch
-`sdd/f1-04-contexto-multiempresa-plan`). Próximo: **passo 07 (review)**
-em agente isolado (`cz-revisor-implementacao`), aprovado pelo dono para
-seguir ("sim").
+`sdd/f1-04-contexto-multiempresa-plan`).
+
+- **Passo 07 (review) FEITO** (`4a85303`, agente `cz-revisor-implementacao`
+  em contexto isolado, Evidence SHA `a871d29`): **APROVADO**. Rerodou
+  build/vet/`test -race`/lint/scan-secrets de forma independente — tudo
+  verde. Confirmou os 3 caminhos da proteção do último admin, isolamento
+  real entre tenants, ausência de e-mail/`permissoes` em resposta/trilha.
+  **1 achado P2 não bloqueante** (`REVIEW-001`): a correção de
+  `ConsultarContexto` feita durante task_04 (fecha o risco RSK-002 da
+  TechSpec — última empresa "órfã" após revogação) é legítima e está no
+  diff, mas não tem teste dedicado ao caminho
+  troca→revogação→consulta. **Decisão registrada**: aceito como risco
+  residual documentado, sem corrigir agora — corrigir exigiria reexecutar
+  o passo 07 (regra do prompt 09: mudança de código após o Evidence SHA
+  do review invalida o review), e o impacto é baixo (nenhuma rota usa
+  `ConsultarContexto` para autorizar; todas rechecam acesso a cada
+  chamada). `fase: review`.
+
+**Próximo: passo 08 (QA)** em agente isolado (`cz-qa`), aguardando "sim"
+do dono.
