@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T12:55:51.410Z
+  modified: 2026-09-15T13:16:26.287Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -106,5 +106,20 @@ deploy dispensado.
   existente). `fase: especificacao`, `metricas.data_especificado`
   registrada.
 
-**Próximo**: aguardando "sim" do dono para o passo 02 (TechSpec) —
-`techspec: obrigatoria` na rota deste incremento (risco `alto`).
+- **Correção no PRD antes da TechSpec** (`cdc1fcd`): achado ao explorar o
+  código — `public.usuario_empresa` não tem escopo por filial, só por
+  empresa (tenant) inteira. RF-004/005 ajustados de "empresa ou filial"
+  pra só "empresa"; registrado em "Fora de escopo".
+- **Passo 02 (TechSpec) FEITO** (`87511d3`): estende `usuarios`/
+  `usuario_empresa` em vez de tabelas novas — coluna
+  `usuarios.ultima_empresa_id` (**ADR-001**) e revogação como soft-delete
+  reaproveitando `status='removido'` (já no `CHECK` desde a fundação,
+  nunca usado até agora) (**ADR-002**). Proteção do último admin é
+  checagem síncrona na aplicação (não trigger), cobrindo tanto revogação
+  quanto rebaixamento de role via concessão — achado importante
+  registrado no fluxo de dados/riscos. 4 endpoints novos: `PUT
+  /empresas/{id}/contexto`, `GET /contexto`, `POST/DELETE
+  /empresas/{id}/acessos[/{usuarioId}]`. `ListarEmpresas` (RF-001)
+  ALTERADO pra marcar `ultima_usada`.
+
+**Próximo**: aguardando "sim" do dono para o passo 03 (plano de tasks).
