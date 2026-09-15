@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T12:50:35.894Z
+  modified: 2026-09-15T12:55:46.475Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -94,6 +94,19 @@ deploy dispensado.
   contrato.md` (ALTERADO). `.compozy/tasks/f1-04-contexto-multiempresa/`
   criado vazio.
 
-**Próximo**: aguardando "sim" do dono para o passo 01 (PRD) — escopo já
-fechado (só EMP-CTX-006 + EMP-CTX-008, empresa individual), sem mais
-decisão pendente bloqueante.
+- **Passo 01 (PRD) FEITO** (`1933240`): 7 RF (listar empresas p/ seletor,
+  registrar/consultar última empresa usada, auditar troca de contexto,
+  conceder acesso por empresa/filial com papel, revogar acesso, impedir
+  remover último admin, auditar concessão/revogação), 7 BR, 4 RNF. Sem
+  pergunta aberta bloqueante (ambiguidades já fechadas na triagem).
+  Fora de escopo explícito: RBAC fino, sessão real, convite de usuário
+  novo, notificação real ao usuário revogado, "perfil contador" com
+  preset de papel, UI inteira. PRM-006/007 novas (preferência simples por
+  usuário para "última empresa"; concessão pressupõe usuário já
+  existente). `fase: especificacao`, `metricas.data_especificado`
+  registrada.
+
+**Próximo**: aguardando "sim" do dono para o passo 03 (plano/tasks) — F1-04
+não tem TechSpec obrigatória separada no rigor `medium`? Conferir rota
+exata do `incremento.yaml` antes de seguir (`techspec: obrigatoria` já
+está marcado lá, então o próximo passo real é 02, não 03).
