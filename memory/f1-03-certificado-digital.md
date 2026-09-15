@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T02:23:24.392Z
+  modified: 2026-09-15T02:32:44.708Z
 ---
 
 Incremento SDD **f1-03-certificado-digital** — issue F1-03 do plano de
@@ -203,8 +203,8 @@ caminho completo na tabela "Arquivos e superfícies esperadas" — nomes
 curtos de pacote (`entity`, `usecase`) nunca batem por comparação de
 prefixo; nota preventiva adicionada ao prompt.
 
-**PR #14 aberto** ("F1-03: consolida contrato vivo e promove
-aprendizados", `systeme-erp-backend`, `sdd/f1-03-certificado-digital-
-fechamento` → `main`) — build/lint/test verdes, guard vermelho (EVAL-066,
-mesmo gap conhecido, não bloqueante). **Merge ainda não solicitado ao
-dono** — nunca mesclar PR sozinho.
+**PR #14 MESCLADO PELO DONO** (2026-09-15, merge SHA `8ad424d`, `main` do
+`systeme-erp-backend`). **INCREMENTO 100% FECHADO.** Faxina feita:
+`sdd/f1-03-certificado-digital` e `sdd/f1-03-certificado-digital-
+fechamento` apagadas (local+remoto); zero PRs abertas no repo. `main` em
+`8ad424d`.
