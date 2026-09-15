@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T20:29:26.936Z
+  modified: 2026-09-15T20:58:03.540Z
 ---
 
 Incremento SDD **f1-05-relacionamentos-ciclo-vida-empresa** — issue F1-05
@@ -80,4 +80,20 @@ completa: TechSpec, review e PR humanos obrigatórios; deploy dispensado.
   contador não é RBAC fino, PRM-003 reaproveita status `removida`,
   PRM-004 sem UI, PRM-005 redução de `EMP-REL-010` por decisão do dono).
 
-**Próximo: passo 01 (PRD).**
+- **Passo 01 (PRD) FEITO** (`2c942a3`): 13 RF, 10 BR, 4 RNF. Resolvi sem
+  precisar perguntar (extrapolações razoáveis, documentadas como BR/PRM):
+  "bloquear operação nova" (RF-008/BR-006) = recusar os 6 endpoints de
+  escrita hoje existentes (regime, filial, numeração, certificado,
+  responsável fiscal, concessão/revogação de acesso); "sem movimento"
+  para exclusão definitiva (BR-008/PRM-006) = ausência de filial,
+  certificado, responsável fiscal, numeração reservada ou membership
+  além do titular — definição operacional pelas superfícies hoje
+  implementadas, revisável quando módulos fiscais/financeiros existirem;
+  papel contador reaproveita as MESMAS rotas de acesso do F1-04 (sem
+  rota própria) e não distingue comportamento de consultor além do
+  rótulo (PRM-007, RBAC fino é F1-08 — o valor é o rótulo estável para
+  políticas futuras). Endereços/contatos/contas bancárias adicionais são
+  só no nível da empresa (matriz), não filial. Sem pergunta aberta
+  bloqueante.
+
+**Próximo: passo 02 (TechSpec).**
