@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T17:05:16.163Z
+  modified: 2026-09-15T18:11:39.244Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -186,5 +186,21 @@ implementação liberada.
   (SCN-005..013/TST-005..013) verdes. `go build`/`vet`/`test`/`make lint`
   e `sdd-guard.sh pre-complete` verdes.
 
-**Próximo: task_04** (handlers HTTP dos 4 endpoints novos + DTOs +
-mapeamento de slugs de erro), aprovado pelo dono para seguir ("sim").
+- **Passo 06/task_04 FEITA** (`d5e681d`): handlers HTTP. 4 rotas novas
+  (`PUT`/`GET .../contexto`, `POST`/`DELETE .../acessos[/{usuarioId}]`),
+  handlers finos (regra já em task_02/03). Slugs dedicados
+  `usuario_nao_encontrado`/`acesso_nao_encontrado` mapeados em
+  `erros.go`; `sem_acesso_a_empresa` (404, não 403) implementado como
+  override só na rota de troca de contexto, decisão explícita da
+  TechSpec. **Achado real corrigido**: `ConsultarContexto` (task_02) não
+  cruzava com o acesso atual — uma última-empresa cujo acesso foi
+  revogado continuava sendo devolvida como válida por `GET /contexto`;
+  corrigido fechando um risco que a própria TechSpec já descrevia como
+  mitigado (não estava, na prática). 12 testes de contrato HTTP com
+  fakes dedicados (`fakeUsuariosCtx`/`fakeMembershipsCtx`). README
+  atualizado (tabela de rotas F1-01 a F1-04). `go build`/`vet`/`test`/
+  `gofmt`/`make lint` e `sdd-guard.sh pre-complete` verdes.
+
+**Próximo: task_05** (regressão completa, segurança, documentação —
+última task antes de review/QA/PR), aprovado pelo dono para seguir
+("sim").
