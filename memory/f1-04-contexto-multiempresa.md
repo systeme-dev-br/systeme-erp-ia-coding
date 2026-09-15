@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T13:34:42.921Z
+  modified: 2026-09-15T13:55:52.309Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -131,5 +131,17 @@ deploy dispensado.
   `compozy tasks validate` → all valid (5); `compozy sync` ok.
   `fase: planejamento`.
 
-**Próximo**: aguardando "sim" do dono para o passo 04 (auditoria de
-especificação, agente `cz-auditor-especificacao` em contexto isolado).
+- **Passo 04 (auditoria) FEITO** (`e782da7`, agente
+  `cz-auditor-especificacao` em contexto isolado): **PRONTO**. Confirmou
+  que a correção de escopo do PRD (empresa, não filial) está propagada
+  sem resíduo em todos os artefatos; ADR-001/ADR-002 refletidos
+  coerentemente nas tasks; proteção do último admin cobre concessão que
+  rebaixa E revogação/autorrevogação (não só prosa); matriz do INDEX.md
+  fecha sem SCN órfão. Único achado: 1ª versão do relatório usou notação
+  de faixa (`TST-001..004`) — corrigido para IDs individuais.
+  `status: especificado`, `fase: auditoria`.
+
+**Próximo: gate humano de especificação** (risco `alto` exige aprovação
+explícita do dono antes de `task_01` começar) — mesmo padrão dos ciclos
+anteriores (escopo: implementação, testes, commits, push e abertura de
+PR; merge continua sujeito a gate próprio).
