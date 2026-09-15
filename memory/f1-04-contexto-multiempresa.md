@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T20:05:25.293Z
+  modified: 2026-09-15T20:08:38.588Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -290,7 +290,14 @@ QA).**
   merge + consolidação + aprendizados), aguardando merge manual do
   dono — nunca mesclada pelo agente.
 
-**INCREMENTO F1-04 ENCERRADO no lado do agente** — ciclo SDD 14/14
-completo (triagem→PRD→TechSpec→plano→auditoria→5 tasks→review→QA→
-PR→merge→consolidação→aprendizados). Falta só o merge manual da PR #16
-pelo dono.
+**PR #16 MESCLADA pelo dono** (merge commit `3713988`). Faxina completa:
+branches locais e remotas `sdd/f1-04-contexto-multiempresa-plan` e
+`-fechamento` apagadas; zero PRs abertas no `systeme-erp-backend`; `main`
+local sincronizado em `3713988`.
+
+**INCREMENTO F1-04 100% ENCERRADO** — ciclo SDD 14/14 completo
+(triagem→PRD→TechSpec→plano→auditoria→5 tasks→review→QA→PR#15 merge→
+validação de merge→consolidação→aprendizados→PR#16 merge→faxina). Zero
+retrabalho (0 reauditorias, 0 revisões de plano), 1 achado de review (P2,
+aceito e confirmado sem regressão pelo QA), 0 bugs, 1 achado de harness
+promovido (glob em `sdd-metricas.sh`, `EVAL-074`).
