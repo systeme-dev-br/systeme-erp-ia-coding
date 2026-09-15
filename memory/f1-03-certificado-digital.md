@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T01:56:34.147Z
+  modified: 2026-09-15T02:23:24.392Z
 ---
 
 Incremento SDD **f1-03-certificado-digital** — issue F1-03 do plano de
@@ -182,8 +182,29 @@ a consolidação de contrato vivo e os aprendizados do F1-02
 reta no `git log --graph`, não merge commit. Diferente do padrão de PRs
 separados de consolidação/aprendizados usado nas séries F0-06/F1-01.
 
-**Próximo: passo 13 (consolidar contrato vivo) + passo 14 (aprendizados)**
-— `sdd-fluxo.sh` já aponta para `/cz-consolidar-contrato-vivo`. Decisão
-pendente do dono: seguir o padrão recente (push direto em `main`) ou abrir
-PR separado — não decidido sem confirmação explícita (escrita em
-`sdd/contratos/` + push em branch principal é ação de alto risco).
+**FECHADO — ciclo SDD 14/14** (2026-09-14/15). Passos 13 (consolidar
+contrato vivo) e 14 (aprendizados) feitos numa branch dedicada
+`sdd/f1-03-certificado-digital-fechamento`, criada a partir do **Merge SHA**
+`98c1a2c` (não da ponta de `main`, que já tinha avançado com o commit
+`AGENTS.md`/repo de memória — gotcha do prompt 13 confirmado na prática;
+precisou de `cherry-pick` do `merge-report.md` que eu tinha empurrado por
+engano na branch já mesclada). `sdd/contratos/empresas/contrato.md` ganhou
+5 comportamentos novos (certificado A1, responsável fiscal e-CPF,
+renovação/remoção, elegibilidade, alertas). Incremento e tasks movidos
+para `sdd/historico/2026-09-14-f1-03-certificado-digital/`.
+
+**2 achados de harness promovidos** (`sdd/aprendizados/2026-09-14-f1-03-
+certificado-digital.md`): (1) `sdd-metricas.sh` `expected_plan_paths`
+tratava célula com vários caminhos separados por vírgula como 1 path
+malformado — zerava a métrica de aderência ao plano mesmo sem desvio real
+(mesmo formato de tabela já usado no F1-02, provavelmente com o mesmo bug
+lá); corrigido para separar por caminho. (2) prompt 03 não instruía
+caminho completo na tabela "Arquivos e superfícies esperadas" — nomes
+curtos de pacote (`entity`, `usecase`) nunca batem por comparação de
+prefixo; nota preventiva adicionada ao prompt.
+
+**PR #14 aberto** ("F1-03: consolida contrato vivo e promove
+aprendizados", `systeme-erp-backend`, `sdd/f1-03-certificado-digital-
+fechamento` → `main`) — build/lint/test verdes, guard vermelho (EVAL-066,
+mesmo gap conhecido, não bloqueante). **Merge ainda não solicitado ao
+dono** — nunca mesclar PR sozinho.
