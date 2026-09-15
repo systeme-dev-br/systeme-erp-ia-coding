@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T12:55:46.475Z
+  modified: 2026-09-15T12:55:51.410Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -106,7 +106,5 @@ deploy dispensado.
   existente). `fase: especificacao`, `metricas.data_especificado`
   registrada.
 
-**Próximo**: aguardando "sim" do dono para o passo 03 (plano/tasks) — F1-04
-não tem TechSpec obrigatória separada no rigor `medium`? Conferir rota
-exata do `incremento.yaml` antes de seguir (`techspec: obrigatoria` já
-está marcado lá, então o próximo passo real é 02, não 03).
+**Próximo**: aguardando "sim" do dono para o passo 02 (TechSpec) —
+`techspec: obrigatoria` na rota deste incremento (risco `alto`).
