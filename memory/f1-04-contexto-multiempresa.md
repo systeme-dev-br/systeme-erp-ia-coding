@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T12:50:26.267Z
+  modified: 2026-09-15T12:50:35.894Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -77,21 +77,23 @@ Essas 4 lacunas foram registradas como PRM-001..004 no `incremento.yaml`,
 seguindo o padrão de "3 decisões de escopo tomadas sem devolver pergunta"
 já usado no F1-02.
 
-## Classificação (passo 00, `2effe73`)
+## Classificação (passo 00, `2effe73`, reclassificado em `bffb680`)
 
-`rigor: large` (múltiplas capacidades + ambiguidade real de "grupo
-econômico" a resolver) / `risco: alto` (autorização/segurança: matriz de
-acesso, proteção do último admin, revogação) / `autonomia: autonomo_ate_pr`
-/ `alvo: branch`. Rota completa: TechSpec, review e PR humanos
-obrigatórios; deploy dispensado.
+`rigor: medium` (2 capacidades, sem mais a ambiguidade de "grupo
+econômico") / `risco: alto` (autorização/segurança: matriz de acesso,
+proteção do último admin, revogação) / `autonomia: autonomo_ate_pr` /
+`alvo: branch`. Rota completa: TechSpec, review e PR humanos obrigatórios;
+deploy dispensado.
 
 ## Progresso
 
 - **Branch**: `sdd/f1-04-contexto-multiempresa-plan` (de `main` `8ad424d`
   do `systeme-erp-backend`, pós-fechamento do F1-03), empurrada.
-- **Passo 00 (triagem) FEITO** (`2effe73`): `incremento.yaml`, `brief.md`,
-  `impacto-contratual/empresas/contrato.md` (ALTERADO, resumo — detalhado
-  no PRD). `.compozy/tasks/f1-04-contexto-multiempresa/` criado vazio.
+- **Passo 00 (triagem) FEITO** (`2effe73`, decisões de escopo fechadas em
+  `bffb680`): `incremento.yaml`, `brief.md`, `impacto-contratual/empresas/
+  contrato.md` (ALTERADO). `.compozy/tasks/f1-04-contexto-multiempresa/`
+  criado vazio.
 
-**Próximo**: aguardando "sim" do dono para o passo 01 (PRD) — que precisa
-resolver as 4 perguntas de escopo acima antes de qualquer TechSpec/código.
+**Próximo**: aguardando "sim" do dono para o passo 01 (PRD) — escopo já
+fechado (só EMP-CTX-006 + EMP-CTX-008, empresa individual), sem mais
+decisão pendente bloqueante.
