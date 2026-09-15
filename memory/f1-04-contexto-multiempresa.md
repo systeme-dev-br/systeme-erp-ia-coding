@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T18:53:03.073Z
+  modified: 2026-09-15T19:48:07.671Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -245,4 +245,18 @@ implementação liberada.
 
 **Review e QA aprovados, 0 P0/P1 aberto (o único achado, P2, foi aceito
 como risco residual documentado e depois confirmado sem regressão pelo
-QA).** Próximo: **passo 10 (preparar PR)** — aguardando "sim" do dono.
+QA).**
+
+- **Passo 10 (preparar PR) FEITO** (`34a8f4e` pacote +
+  **`systeme-erp-backend#15` ABERTA** + `e211155` registra gate/PR no
+  `incremento.yaml`). `pr-package.md`/`pr-body.md` completos. Gate
+  `especificacao` já cobria "abertura de PR" no escopo — usado como
+  autorização, sem pedir "sim" extra pontual para o `gh pr create` em si
+  (autonomia `autonomo_ate_pr`). `gates.pr.gate_humano.status: aprovado`,
+  `pr.status: aberto`, `pr.numero: 15`. CI disparada (`build`/`guard`/
+  `lint`/`test`), pendente no momento do registro.
+
+**PR #15 aberta, aguardando CI e revisão remota. Merge NUNCA é feito pelo
+agente — passo 11 é gate humano.** Próximo: acompanhar CI e, quando o
+dono validar (revisão remota + merge manual), seguir para consolidação
+(passo 13).
