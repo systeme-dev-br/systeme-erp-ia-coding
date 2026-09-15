@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T13:16:26.287Z
+  modified: 2026-09-15T13:34:42.921Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -122,4 +122,14 @@ deploy dispensado.
   /empresas/{id}/acessos[/{usuarioId}]`. `ListarEmpresas` (RF-001)
   ALTERADO pra marcar `ultima_usada`.
 
-**Próximo**: aguardando "sim" do dono para o passo 03 (plano de tasks).
+- **Passo 03 (plano+tasks) FEITO** (`cb2c790`): `execucao.md` (base `main`
+  `8ad424d`, ordem schema/repo→troca de contexto→concessão/revogação→
+  HTTP→regressão), `INDEX.md`, **5 tasks**, **2 `feature/*`** com **14
+  SCN/TST** no total (4+9+1 por comportamento — task_02 troca de
+  contexto, task_03 concessão/revogação, task_01 isolamento). Impacto
+  contratual detalhado (5 comportamentos, Gherkin completo).
+  `compozy tasks validate` → all valid (5); `compozy sync` ok.
+  `fase: planejamento`.
+
+**Próximo**: aguardando "sim" do dono para o passo 04 (auditoria de
+especificação, agente `cz-auditor-especificacao` em contexto isolado).
