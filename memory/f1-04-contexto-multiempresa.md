@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T18:29:55.543Z
+  modified: 2026-09-15T18:53:03.073Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -229,5 +229,20 @@ implementação liberada.
   `ConsultarContexto` para autorizar; todas rechecam acesso a cada
   chamada). `fase: review`.
 
-**Próximo: passo 08 (QA)** em agente isolado (`cz-qa`), aguardando "sim"
-do dono.
+- **Passo 08 (QA) FEITO** (`baded55`, agente `cz-qa` em contexto isolado,
+  mesmo Evidence SHA `a871d29`): **APROVADO**. Validou como consumidor
+  real — API HTTP de verdade contra Postgres/Redis reais via
+  `compose-up`, 3 empresas/tenants provisionados de fato. **14/14 SCN
+  passaram** + o cenário extra sugerido pelo achado P2 do review
+  (troca→revogação→consulta) também passou, confirmando na prática que
+  `ConsultarContexto` não expõe uma última-empresa cujo acesso foi
+  revogado. **0 bugs.** Suíte automatizada e `scan-secrets` reexecutados
+  de forma independente, verdes. Ambiente derrubado ao final, `.env`
+  restaurado ao template, nada deixado rodando.
+- **`data_validado` marcado** (`sdd-metricas.sh`) e transição aplicada
+  via `sdd-fluxo.sh --run`: `status: validado`, `fase: pr` (commit
+  `fec0a96`).
+
+**Review e QA aprovados, 0 P0/P1 aberto (o único achado, P2, foi aceito
+como risco residual documentado e depois confirmado sem regressão pelo
+QA).** Próximo: **passo 10 (preparar PR)** — aguardando "sim" do dono.
