@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T16:47:45.950Z
+  modified: 2026-09-15T17:05:16.163Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -173,6 +173,18 @@ implementação liberada.
   `usecase_test`). `go build`/`vet`/`test`/`make lint` e `sdd-guard.sh
   pre-complete` verdes.
 
-**Próximo: task_03** (concessão/revogação de acesso — `EMP-CTX-008`,
-`garantirAdmin`, proteção do último admin), aprovado pelo dono para
-seguir ("pode sim").
+- **Passo 06/task_03 FEITA** (`8fedd70`): concessão/revogação de acesso.
+  `garantirAdmin` (mesmo padrão de `garantirAcesso`/`garantirTitular`);
+  `garantirNaoRemoveUltimoAdmin` compartilhado por rebaixamento e
+  revogação/autorrevogação; `validarRole`. `ConcederAcesso` resolve
+  usuário por e-mail (`*ErroUsuarioNaoEncontrado` se não existir, mesmo
+  padrão de tipo de erro dedicado do F1-03) e faz upsert de papel;
+  `RevogarAcesso` exige confirmação explícita (`confirmacao_obrigatoria`,
+  mesmo padrão do F1-03) e devolve `*ErroAcessoNaoEncontrado` se já não
+  ativo. Ambos auditam via trilha best-effort, metadata só com
+  `usuario_afetado`/`papel` (nunca e-mail bruto). 9 testes com fakes
+  (SCN-005..013/TST-005..013) verdes. `go build`/`vet`/`test`/`make lint`
+  e `sdd-guard.sh pre-complete` verdes.
+
+**Próximo: task_04** (handlers HTTP dos 4 endpoints novos + DTOs +
+mapeamento de slugs de erro), aprovado pelo dono para seguir ("sim").
