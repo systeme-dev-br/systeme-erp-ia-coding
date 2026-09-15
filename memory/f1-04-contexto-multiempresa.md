@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T19:48:07.671Z
+  modified: 2026-09-15T19:52:26.088Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -256,7 +256,18 @@ QA).**
   `pr.status: aberto`, `pr.numero: 15`. CI disparada (`build`/`guard`/
   `lint`/`test`), pendente no momento do registro.
 
-**PR #15 aberta, aguardando CI e revisão remota. Merge NUNCA é feito pelo
-agente — passo 11 é gate humano.** Próximo: acompanhar CI e, quando o
-dono validar (revisão remota + merge manual), seguir para consolidação
-(passo 13).
+- **PR #15 MESCLADA pelo dono** (`messiasneto74`, merge SHA `90858dd`,
+  2026-09-15). CI: `build`/`lint`/`test` verdes; `guard` vermelho por
+  `EVAL-066` (gap pré-existente do próprio harness, não relacionado à
+  entrega — mesmo padrão do F1-03, merge manual).
+- **Passo 11 (validar PR/merge) FEITO** (`e89cc4c`, na nova branch
+  `sdd/f1-04-contexto-multiempresa-fechamento`, criada a partir do
+  **Merge SHA** `90858dd`, não da ponta de `main` — mesmo padrão do
+  F1-03/F1-01 para preservar o Evidence SHA quando o passo 13 acontecer).
+  `merge-report.md`: `Status: MERGED`. Gates `pr`/`merge` aprovados no
+  `incremento.yaml`; `pre-merge` verde. `data_merge` marcado.
+  `fase: merge`.
+
+**Próximo: passo 13 (consolidar contrato vivo)** + **passo 14
+(aprendizados)** — mesma branch de fechamento, aguardando "sim" do
+dono.
