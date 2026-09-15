@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T13:55:52.309Z
+  modified: 2026-09-15T16:42:31.927Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -141,7 +141,25 @@ deploy dispensado.
   de faixa (`TST-001..004`) — corrigido para IDs individuais.
   `status: especificado`, `fase: auditoria`.
 
-**Próximo: gate humano de especificação** (risco `alto` exige aprovação
-explícita do dono antes de `task_01` começar) — mesmo padrão dos ciclos
-anteriores (escopo: implementação, testes, commits, push e abertura de
-PR; merge continua sujeito a gate próprio).
+**Gate humano de especificação APROVADO** pelo dono (2026-09-15, "sim" no
+chat, registrado em `gates.especificacao` do `incremento.yaml`) —
+implementação liberada.
+
+- **Passo 06/task_01 FEITO** (`0f602bf`): schema/portas/persistência.
+  Migration `public/000002_contexto_multiempresa` (`usuarios.
+  ultima_empresa_id`, ADR-001); queries sqlc `ConcederMembership`
+  (upsert)/`RevogarMembership` (soft-delete `execrows`)/`ContarAdminsAtivos`/
+  `DefinirUltimaEmpresa`/`UltimaEmpresaDoUsuario`; `port.MembershipRepo`/
+  `port.UsuarioRepo` estendidas e implementadas no repo Postgres. 5 testes
+  de integração contra Postgres real, incluindo SCN-014 (isolamento entre
+  duas empresas). Precisou atualizar 3 duplas de teste (`fakeMemberships`,
+  `semAcesso`, `acessoEmpresa`) que implementam essas portas, para não
+  quebrar a compilação ao estender a interface — padrão a repetir nas
+  próximas tasks que tocarem `MembershipRepo`/`UsuarioRepo`. `go build`/
+  `go vet`/`go test`/`make lint` e `sdd-guard.sh pre-complete` verdes.
+  `task_01.md`/`INDEX.md` marcados `completed`, `compozy tasks
+  validate`/`sync` ok. Commit empurrado para
+  `sdd/f1-04-contexto-multiempresa-plan`.
+
+**Próximo: task_02** (usecase de troca de contexto — `EMP-CTX-006`),
+aprovado pelo dono para seguir ("pode sim").
