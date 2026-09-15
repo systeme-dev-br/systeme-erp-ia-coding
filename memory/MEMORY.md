@@ -14,3 +14,5 @@
 - [Memória a cada validação](memory-md-a-cada-validacao.md) — atualizar MEMORY.md/arquivo do incremento a cada ponto de validação do dono (gate/PR), não só no fechamento.
 - [SDD guard: gap de authority](sdd-guard-authority-gap.md) — check "SDD guard" vermelho em todo PR; resolvido via AG-001 opção B (PR #162, `continue-on-error` em pre-merge-ci). #162 fica vermelho 1x, merge manual. PRs de aprendizados (passo 14) também saem vermelhas (`sdd/aprendizados/*` + `sdd/metricas.csv` fora das exclusões) — merge manual.
 - [Repo de memória IA (espelho)](repo-memoria-ia-coding.md) — a memória local também é publicada (a pedido) em `systeme-dev-br/systeme-erp-ia-coding` (público); espelho manual, não sincronizado automaticamente.
+
+<!-- teste de hook em 2026-09-15T02:03:30Z -->
