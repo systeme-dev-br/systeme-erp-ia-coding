@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T20:58:03.540Z
+  modified: 2026-09-15T21:02:53.482Z
 ---
 
 Incremento SDD **f1-05-relacionamentos-ciclo-vida-empresa** — issue F1-05
@@ -96,4 +96,16 @@ completa: TechSpec, review e PR humanos obrigatórios; deploy dispensado.
   só no nível da empresa (matriz), não filial. Sem pergunta aberta
   bloqueante.
 
-**Próximo: passo 02 (TechSpec).**
+- **Passo 02 (TechSpec) FEITO** (`968df09`, 3 ADRs): achado grande —
+  `EmpresaRepo.AtualizarStatus` já existe (usado por `AtivarEmpresa`) e
+  serve para `ativa→inativa→ativa→removida` sem mudar assinatura;
+  ciclo de vida e vínculo/desvínculo de contador reaproveitam
+  `public.trilha_auditoria` já existente (mesmo canal do evento
+  `alteracao_conta`), sem infra nova. Endereço/contato/conta bancária
+  (dado de negócio do tenant) ganham 3 tabelas novas + auditoria
+  dedicada `empresa_relacionamentos_auditoria`, mesmo recipe de
+  `empresa_certificado_auditoria` (F1-03). Papel "contador": zero
+  usecase novo, só migration aditiva no `CHECK` de `usuario_empresa.role`
+  — reaproveita 100% `ConcederAcesso`/`RevogarAcesso` do F1-04.
+
+**Próximo: passo 03 (plano de execução + tasks).**
