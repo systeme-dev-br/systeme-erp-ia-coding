@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T18:11:39.244Z
+  modified: 2026-09-15T18:16:44.996Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -201,6 +201,16 @@ implementação liberada.
   atualizado (tabela de rotas F1-01 a F1-04). `go build`/`vet`/`test`/
   `gofmt`/`make lint` e `sdd-guard.sh pre-complete` verdes.
 
-**Próximo: task_05** (regressão completa, segurança, documentação —
-última task antes de review/QA/PR), aprovado pelo dono para seguir
-("sim").
+- **Passo 06/task_05 FEITA** (`a871d29`): regressão transversal. `sqlc
+  generate` sem diff; `make build`/`make test -race -count=1` (suíte
+  completa, Postgres real)/`make lint` verdes; `sdd-guard.sh
+  scan-secrets` contra os 43 arquivos do incremento sem achado; `gofmt
+  -l` vazio. Matriz de rastreabilidade fechada: 14 SCN/14 TST, todos
+  ligados a teste automatizado, sem órfão. Nenhum contrato vivo alterado
+  (fica para o passo 13/consolidação).
+
+**TODAS AS 5 TASKS DE IMPLEMENTAÇÃO FEITAS** (`0f602bf`, `3ea4e23`,
+`8fedd70`, `d5e681d`, `a871d29`, todas na branch
+`sdd/f1-04-contexto-multiempresa-plan`). Próximo: **passo 07 (review)**
+em agente isolado (`cz-revisor-implementacao`), aprovado pelo dono para
+seguir ("sim").
