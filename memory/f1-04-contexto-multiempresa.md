@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T16:42:31.927Z
+  modified: 2026-09-15T16:47:45.950Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -161,5 +161,18 @@ implementação liberada.
   validate`/`sync` ok. Commit empurrado para
   `sdd/f1-04-contexto-multiempresa-plan`.
 
-**Próximo: task_02** (usecase de troca de contexto — `EMP-CTX-006`),
-aprovado pelo dono para seguir ("pode sim").
+- **Passo 06/task_02 FEITA** (`3ea4e23`): usecase de troca de contexto.
+  `TrocarContexto` (`garantirAcesso`/BR-005 → captura empresa anterior →
+  `DefinirUltimaEmpresa` → trilha `troca_contexto` best-effort com
+  `empresa_anterior` nos metadados) e `ConsultarContexto`. `ListarEmpresas`
+  passou a devolver `EmpresaListada` (`entity.Empresa` + `ultima_usada`) —
+  mudança de assinatura sem quebrar o handler HTTP existente, que só
+  repassa a lista pra `escreverJSON` sem acessar campos. 4 testes com
+  fakes (SCN-001..004/TST-001..004) verdes; precisou de um novo
+  `fakeUsuarios` em `fakes_test.go` (não existia ainda no pacote
+  `usecase_test`). `go build`/`vet`/`test`/`make lint` e `sdd-guard.sh
+  pre-complete` verdes.
+
+**Próximo: task_03** (concessão/revogação de acesso — `EMP-CTX-008`,
+`garantirAdmin`, proteção do último admin), aprovado pelo dono para
+seguir ("pode sim").
