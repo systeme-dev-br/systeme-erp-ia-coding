@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T12:11:28.666Z
+  modified: 2026-09-15T12:50:26.267Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -30,7 +30,25 @@ incremento separado, mesmo padrão do [[f1-01-frontend-cadastro-empresas-filiais
   ("incluir novas empresas"); proteção do último administrador por
   empresa; revogação imediata; auditoria.
 
-## Achado crítico da triagem (define o corte real de escopo)
+## Decisões de escopo FECHADAS pelo dono (2026-09-15)
+
+- **Grupo econômico: cortado.** Sem noção de grupo — troca de contexto e
+  concessão de acesso sempre por empresa individual. Registrado como
+  decisão pendente para um incremento futuro em
+  `docs/historias/plano-fases-issues.md` §7, PR **`systeme-erp-docs#196`**
+  ("adia grupo econômico do F1-04 para incremento futuro") — aberto, não
+  mesclado ainda.
+- **EMP-CTX-007 (consolidado): cortada inteiramente.** Dependia do grupo
+  (cortado) e de módulos financeiros/relatórios inexistentes (F4-F9).
+- Consequência: **F1-04 entrega só `EMP-CTX-006` (troca de contexto) e
+  `EMP-CTX-008` (concessão/revogação de acesso por empresa individual)**.
+  Rigor reclassificado de `large` para `medium` (a ambiguidade que
+  justificava `large` foi resolvida); risco continua `alto`
+  (autorização/segurança).
+- Commit `bffb680` na branch `sdd/f1-04-contexto-multiempresa-plan`
+  fechou essas decisões no `brief.md`/`incremento.yaml`/impacto contratual.
+
+## Achado crítico da triagem (contexto por trás das decisões acima)
 
 - **"Grupo econômico" não existe como entidade no modelo implementado.**
   Hoje uma empresa (tenant) = matriz + filiais no MESMO schema; não há
