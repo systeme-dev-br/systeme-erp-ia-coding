@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1b4d8295-0b6b-4788-a445-a2b83382be68
-  modified: 2026-09-15T19:52:26.088Z
+  modified: 2026-09-15T20:05:25.293Z
 ---
 
 Incremento SDD **f1-04-contexto-multiempresa** — issue F1-04 do plano de
@@ -268,6 +268,29 @@ QA).**
   `incremento.yaml`; `pre-merge` verde. `data_merge` marcado.
   `fase: merge`.
 
-**Próximo: passo 13 (consolidar contrato vivo)** + **passo 14
-(aprendizados)** — mesma branch de fechamento, aguardando "sim" do
-dono.
+- **Passo 13 (consolidação) FEITO** (`35b23c8`): `sdd/contratos/empresas/
+  contrato.md` ganhou troca de contexto sem novo login (EMP-CTX-006) +
+  concessão/revogação de acesso por empresa com papel e proteção do
+  último admin (EMP-CTX-008). Incremento e workflow movidos para
+  `sdd/historico/2026-09-15-f1-04-contexto-multiempresa/`.
+  `status: consolidado`.
+- **Passo 14 (aprendizados) FEITO** (`0b8eb0f`): **2º achado no mesmo
+  mecanismo de aderência ao plano** (após o fix de célula-com-vírgula do
+  F1-03): `expected_plan_paths`/`sdd-metricas.sh` não expandia glob
+  (`` `*_test.go` ``, atalho para "qualquer arquivo de teste" já usado
+  desde o F1-03) — 100% dos arquivos de teste reais contavam como fora
+  do plano. Corrigido o comparador (`[ = ]` literal → `[[ == ]]` sem
+  aspas, glob nativo do bash). **`EVAL-074` novo** prova a regressão
+  (`fora_do_plano=1/7` sem o fix, `0/7` com o fix) — suíte tier1 completa
+  (92 casos) segue verde, só o `EVAL-066` pré-existente/não-relacionado
+  falha. Nota adicionada ao `sdd/prompts/03-criar-tasks.md` confirmando
+  suporte a glob. Linha do incremento adicionada a `sdd/metricas.csv`.
+  `fase: aprendizado` (arquivado), `status` continua `consolidado`.
+- **PR de fechamento `systeme-erp-backend#16` ABERTA** (validação de
+  merge + consolidação + aprendizados), aguardando merge manual do
+  dono — nunca mesclada pelo agente.
+
+**INCREMENTO F1-04 ENCERRADO no lado do agente** — ciclo SDD 14/14
+completo (triagem→PRD→TechSpec→plano→auditoria→5 tasks→review→QA→
+PR→merge→consolidação→aprendizados). Falta só o merge manual da PR #16
+pelo dono.
