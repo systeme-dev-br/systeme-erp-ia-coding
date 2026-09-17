@@ -14,7 +14,7 @@ RBAC-PERM-006/007/008 (`docs/historias/usuarios-papeis-permissoes.md`).
 ## Status
 
 **FECHADO — ciclo SDD 14/14** (2026-09-17). Consolidação @ `6508775` (PR #64);
-aprendizados no passo 14.
+aprendizados documentados no passo 14 (backend PR #65).
 
 ## Entrega
 
@@ -32,9 +32,10 @@ aprendizados no passo 14.
 | --- | --- |
 | #57–#62 | tasks 01–06 (implementação) |
 | #63 | review/QA/evidência SDD |
-| consolidação | contratos vivos + histórico (branch `cursor/f1-08-consolidacao-89ba`) |
+| #64 | consolidação contratos vivos + histórico |
+| #65 | aprendizados (passo 14) |
 
-Merge implementação: `165c72c`. Merge evidência: `3214bab`.
+Merge implementação: `165c72c`. Merge evidência: `3214bab`. Merge consolidação: `6508775`.
 
 ## Contratos consolidados
 
