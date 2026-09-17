@@ -13,8 +13,8 @@ RBAC-PERM-006/007/008 (`docs/historias/usuarios-papeis-permissoes.md`).
 
 ## Status
 
-**FECHADO — ciclo SDD 13/14** (consolidação em 2026-09-17). Passo 14
-(aprendizados) pendente.
+**FECHADO — ciclo SDD 14/14** (2026-09-17). Consolidação @ `6508775` (PR #64);
+aprendizados no passo 14.
 
 ## Entrega
 
